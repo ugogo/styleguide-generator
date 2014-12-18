@@ -10,7 +10,7 @@ module.exports = {
 		/*
 		 * Clear baseFolder
 		 */
-		del(opts.distFolder, function(){
+		del(opts.distFolder + opts.distComponentFolder, function(){
 
 			/*
 			 * For each MD files into baseFolder
