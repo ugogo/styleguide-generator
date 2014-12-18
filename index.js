@@ -23,16 +23,17 @@ module.exports = {
 						 * Convert it to .html
 						 */
 						var html = mdConvert(fileString).html;
+						var distComponentFolder = opts.distFolder + opts.distComponentFolder;
 						var folderPath = path.replace(opts.baseFolder, '').split('/')[0];
 						var fileName = path.replace(opts.baseFolder, '').split('/')[1].replace('.md', '.html');
-						var filePath = opts.distComponentFolder + folderPath + '/' + fileName;
+						var filePath = distComponentFolder + folderPath + '/' + fileName;
 
 						/*
 						 * Create a folder
 						 * append it distFolder
 						 * append currentFile into the currentFolder
 						 */
-						mkdirp(opts.distComponentFolder + folderPath, function(){
+						mkdirp(distComponentFolder + folderPath, function(){
 							fs.writeFile(filePath, html);
 						});
 					});
