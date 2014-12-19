@@ -23,10 +23,19 @@ _my_project/
 var styleguide = require('node-styleguide');
 
 styleguide.generate({
-	baseFolder: 'assets/css/',
-	distFolder: 'styleguide/',
-	distComponentFolder: 'components/',
-	distFilesExtensions: '.html'
+  baseFolder: 'assets/css/',
+  distFolder: 'styleguide/',
+  distComponentFolder: 'components/',
+  distFilesExtensions: '.html',
+
+  beforeCompilation: function(str){
+    /* Receive each Markdown file content as an argument
+    * Can manipulate and return it */
+  },
+  afterCompilation: function(str){
+    /* Receive each converted file content as an argument
+    * Can manipulate it and return it */
+  }
 });
 ```
 Will output
