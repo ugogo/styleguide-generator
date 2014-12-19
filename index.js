@@ -25,7 +25,7 @@ module.exports = {
 						var html = mdConvert(fileString).html;
 						var distComponentFolder = opts.distFolder + opts.distComponentFolder;
 						var folderPath = path.replace(opts.baseFolder, '').split('/')[0];
-						var fileName = path.replace(opts.baseFolder, '').split('/')[1].replace('.md', '.html');
+						var fileName = path.replace(opts.baseFolder, '').split('/')[1].replace('.md', opts.distFilesExtensions);
 						var filePath = distComponentFolder + folderPath + '/' + fileName;
 
 						/*

@@ -25,7 +25,8 @@ var styleguide = require('node-styleguide');
 styleguide.generate({
 	baseFolder: 'assets/css/',
 	distFolder: 'styleguide/',
-	distComponentFolder: 'components/'
+	distComponentFolder: 'components/',
+	distFilesExtensions: '.html'
 });
 ```
 Will output
