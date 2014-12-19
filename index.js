@@ -4,34 +4,65 @@ var glob = require('glob');
 var mkdirp = require('mkdirp');
 var mdConvert = require('namp');
 
+var tools = {
+	test: {
+		compilationFn: function(fn, fnName){
+			if(typeof fn !== 'function')
+				throw new Error(fnName + ' is not a function');
+			else if(typeof fn() !== 'string')
+				throw new Error(fnName + ' must return a string');
+		},
+		val: function(content, type, name){
+			if(typeof content !== type)
+				throw new Error(name + ' must return a ' + type);
+		}
+	},
+	get: {
+		Markdown: function(param, MdStr){
+			if(param){
+				tools.test.compilationFn(param, 'beforeCompilation');
+				return param(MdStr)
+			}
+			return MdStr;
+		},
+		Html: function(param, htmlStr){
+			if(param){
+				tools.test.compilationFn(param, 'afterCompilation');
+				return param(htmlStr);
+			}
+			return mdConvert(htmlStr).html;
+		},
+		fileExtension: function(param){
+			if(param){
+				tools.test.val(param, 'string', 'distFilesExtensions');
+				return param.charAt(0) !== '.' ? '.' + param : param;
+			}
+			return '.html';
+		}
+	},
+	deleteFolder: function(path, cb){
+		try { del(path, cb); }
+		catch(e) { console.log(e); }
+	}
+};
+
 module.exports = {
 	generate: function(opts){
+		var componentFolder = opts.distFolder + opts.distComponentFolder;
 
-		// clear baseFolder
-		del(opts.distFolder + opts.distComponentFolder, function(){
-
-			// For each MD files into baseFolder
+		tools.deleteFolder(componentFolder, function(){
 			glob(opts.baseFolder + '**/*.md', function(err, files){
 				files.forEach(function(path, i){
-					fs.readFile(path, 'utf8', function(err, fileString) {
+					fs.readFile(path, 'utf8', function(err, MarkdownStr) {
+						var str = tools.get.Markdown(opts.beforeCompilation, MarkdownStr);
+						var html = tools.get.Html(opts.afterCompilation, str);
+						var fileExtension = tools.get.fileExtension(opts.distFilesExtensions);
 
-						// opts.beforeCompilation()
-						var str = opts.beforeCompilation ? opts.beforeCompilation(fileString) : fileString;
-
-						// convert it to html
-						var _html = mdConvert(str).html;
-
-						// opts.afterCompilation();
-						var html = opts.afterCompilation ? opts.afterCompilation(_html) : _html;
-
-						// create paths
-						var distComponentFolder = opts.distFolder + opts.distComponentFolder;
 						var folderPath = path.replace(opts.baseFolder, '').split('/')[0];
-						var fileName = path.replace(opts.baseFolder, '').split('/')[1].replace('.md', opts.distFilesExtensions);
-						var filePath = distComponentFolder + folderPath + '/' + fileName;
+						var fileName = path.replace(opts.baseFolder, '').split('/')[1].replace('.md', fileExtension);
+						var filePath = componentFolder + folderPath + '/' + fileName;
 
-						// Create folders and append converted file
-						mkdirp(distComponentFolder + folderPath, function(){
+						mkdirp(componentFolder + folderPath, function(){
 							fs.writeFile(filePath, html);
 						});
 					});
