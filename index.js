@@ -16,13 +16,13 @@ module.exports = {
 					fs.readFile(path, 'utf8', function(err, fileString) {
 
 						// opts.beforeCompilation()
-						var str = opts.beforeCompilation(fileString) || fileString;
+						var str = opts.beforeCompilation ? opts.beforeCompilation(fileString) : fileString;
 
 						// convert it to html
 						var _html = mdConvert(str).html;
 
 						// opts.afterCompilation();
-						var html = opts.afterCompilation(_html) || _html;
+						var html = opts.afterCompilation ? opts.afterCompilation(_html) : _html;
 
 						// create paths
 						var distComponentFolder = opts.distFolder + opts.distComponentFolder;
