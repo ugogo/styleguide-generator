@@ -1,6 +1,6 @@
 {
   "name": "node-styleguide",
-  "version": "0.1.2",
+  "version": "1.0.0",
   "description": "Generate styleguide",
   "main": "index.js",
   "scripts": {
