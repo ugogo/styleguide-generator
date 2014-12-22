@@ -12,7 +12,7 @@ _my_project/
   |_ assets/
     |_ css/
       |_ component-a/
-       |_ component-a.css
+        |_ component-a.css
         |_ component-a.md
       |_ component-b/
         |_ component-b.css
