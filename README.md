@@ -7,8 +7,8 @@ npm i node-styleguide
 
 ## How it works
 - For each `.md` files into your `baseFolder`
--- Convert them to `html` (note that you can change the extension with `distFilesExtensions` for a better match with your environnement)
--- Output to `distFolder / distComponentFolder`
+- Convert them to `html` (note that you can change the extension with `distFilesExtensions` for a better match with your environnement)
+- Output to `distFolder / distComponentFolder`
 
 ## Usage
 ```js
