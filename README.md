@@ -5,21 +5,21 @@
 npm i node-styleguide
 ```
 
-### Use
-Assuming this folder structure
-```
-_my_project/
-  |_ assets/
-    |_ css/
-      |_ component-a/
-        |_ component-a.css
-        |_ component-a.md
-      |_ component-b/
-        |_ component-b.css
-        |_ component-b.md
-  |_ index.js
-```
+## How it works
+- For each `.md` files into your `baseFolder`
+-- Convert them to `html` (note that you can change the extension with `distFilesExtensions` for a better match with your environnement)
+-- Output to `distFolder / distComponentFolder`
+
+## Usage
 ```js
+var styleguide = require('node-styleguide');
+styleguide.generate(opts);
+```
+
+## Complete example
+```js
+// styleguide.js
+
 var styleguide = require('node-styleguide');
 
 styleguide.generate({
@@ -27,8 +27,6 @@ styleguide.generate({
   distFolder: 'styleguide/',
   distComponentFolder: 'components/',
   distFilesExtensions: '.html',
-
-  /* Will output styleguide/components/component-name.html */
 
   beforeCompilation: function(str){
     /* Receive each Markdown file content as an argument
@@ -41,7 +39,7 @@ styleguide.generate({
 });
 ```
 
-Will output
+### Will output
 ```
 _my_project/
   |_ styleguide/
