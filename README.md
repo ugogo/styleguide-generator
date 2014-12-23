@@ -28,23 +28,24 @@ styleguide.generate({
   distComponentFolder: 'components/',
   distFilesExtensions: '.html',
 
+  /* Will output styleguide/components/component-name.html */
+
   beforeCompilation: function(str){
     /* Receive each Markdown file content as an argument
-    * Can manipulate and return it */
+     * Can manipulate and return it */
   },
   afterCompilation: function(str){
     /* Receive each converted file content as an argument
-    * Can manipulate it and return it */
+     * Can manipulate it and return it */
   }
 });
 ```
+
 Will output
 ```
 _my_project/
   |_ styleguide/
     |_ components
-      |_ component-a
-        |_ component-a.html
-      |_ component-b
-        |_ component-b.html
+      |_ component-a.html
+      |_ component-b.html
 ```
