@@ -1,6 +1,6 @@
 {
   "name": "node-styleguide",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Markdown-based styleguide generator",
   "main": "lib/index.js",
   "scripts": {
