@@ -17,14 +17,27 @@ styleguide.generate(opts);
 ```
 
 ## Complete example
+
+```
+// Base folder
+
+my_project/
+  assets/
+    css/
+      dropdown.css
+      modal.css
+  styleguide/
+    index.html
+```
+
 ```js
 // styleguide.js
 
 var styleguide = require('node-styleguide');
 
 styleguide.generate({
-  baseFolder: 'assets/css/',
-  distFolder: 'styleguide/',
+  baseFolder: 'my_project/assets/css/',
+  distFolder: 'my_project/styleguide/',
   distComponentFolder: 'components/',
   distFilesExtensions: '.html',
 
@@ -45,9 +58,12 @@ styleguide.generate({
 
 ### Will output
 ```
-_my_project/
-  |_ styleguide/
-    |_ components
-      |_ component-a.html
-      |_ component-b.html
+my_project/
+  assets/
+    ...
+  styleguide/
+    index.html
+    components/
+      dropdown.html
+      modal.html
 ```
