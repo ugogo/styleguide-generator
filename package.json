@@ -1,10 +1,11 @@
 {
   "name": "node-styleguide",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "Markdown-based styleguide generator",
   "main": "lib/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "generate": "node example/generate.js"
   },
   "repository": {
     "type": "git",

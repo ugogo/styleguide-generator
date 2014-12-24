@@ -31,10 +31,14 @@ styleguide.generate({
   beforeCompilation: function(str){
     /* Receive each Markdown file content as an argument
      * Can manipulate and return it */
+
+    return str;
   },
   afterCompilation: function(str){
     /* Receive each converted file content as an argument
      * Can manipulate it and return it */
+
+    return str;
   }
 });
 ```
