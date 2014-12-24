@@ -24,6 +24,7 @@
   "dependencies": {
     "del": "^1.1.0",
     "glob": "^4.3.1",
+    "markdown": "^0.5.0",
     "mkdirp": "^0.5.0",
     "namp": "^0.2.25"
   }
