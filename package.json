@@ -16,7 +16,8 @@
     "styleguide",
     "generator",
     "webstyleguide",
-    "documentation"
+    "documentation",
+    "node"
   ],
   "author": "Ugo Onali",
   "license": "MIT",
