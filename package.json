@@ -1,6 +1,6 @@
 {
   "name": "node-styleguide",
-  "version": "1.0.6",
+  "version": "1.1.0",
   "description": "Markdown-based styleguide generator",
   "main": "lib/index.js",
   "scripts": {
@@ -13,7 +13,10 @@
   },
   "keywords": [
     "node",
-    "styleguide"
+    "styleguide",
+    "generator",
+    "webstyleguide",
+    "documentation"
   ],
   "author": "Ugo Onali",
   "license": "MIT",
