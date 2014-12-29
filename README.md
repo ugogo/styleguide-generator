@@ -55,12 +55,6 @@ var styleguide = new Styleguide({
   * Default: .html */
   distFilesExtensions: 'html',
 
-  /* Wrap each component file with what you want
-  * Default: return '<div class="Module">'+ content +'</div>' */
-  distComponentLayout: function(content){
-    return '<div class="module-wrapper">' + content + '</div">';
-  },
-
   /* Modify each Markdown file before compilation
   * Default: return MardowknStr */
   beforeCompilation: function(MardowknStr){
