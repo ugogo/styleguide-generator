@@ -8,7 +8,7 @@ npm i node-styleguide
 ## How it works
 - For each `.md` files into your `srcFolder`
 - Convert them to `html` (you can change the extension with `distFilesExtensions` for a better match with your environnement, `.hbs` for example)
-- Output to `distFolder / distComponentFolder`
+- Output to `distFolder / components.folder`
 
 ## Usage
 ```js
@@ -129,3 +129,19 @@ my_project/
     index.html
     layout.html
 ```
+
+## Usages
+
+### Default
+
+Default behavior: generate a file per component.
+The file content will **only** be the Markdown content converted.
+You can specify a folder where all components will be generated -> `components.folder`
+
+### Default with layout
+
+Todo.
+
+### One page
+
+If you set `onePage.active` to `true`, no external file will be generate and all components will be put into the `onePage.contentStr` into your `layout`
