@@ -35,9 +35,14 @@ var styleguide = new Styleguide({
   * Default: 'example/styleguide/' */
   distFolder: 'styleguide/',
 
+  /* Layout path
+  * Default: 'example/styleguide/layout.html' */
+  layout: 'example/styleguide/layout.html',
+
   components : {
 
     /* Folder where your components files will be generated
+    * Can be blank
     * Default :'components/' */
     folder: '',
 
@@ -66,10 +71,6 @@ var styleguide = new Styleguide({
      * set active to true
      * Default: false */
     active: false,
-
-    /* Layout path
-     * Default: 'example/styleguide/layout.html' */
-    layout: 'example/styleguide/layout.html',
 
     /* String to replace in the layout
      * It will be replace by the components' Html generated
