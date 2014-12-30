@@ -12,8 +12,10 @@ npm i node-styleguide
 
 ## Usage
 ```js
-var styleguide = require('node-styleguide');
-styleguide.generate(opts);
+var Styleguide = require('node-styleguide');
+var styleguide;
+
+styleguide = new Styleguide(opts).generate(cb);
 ```
 
 ## Options

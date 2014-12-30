@@ -1,10 +1,12 @@
 var Styleguide = require('../lib/index.js');
+var styleguide;
 
-var styleguide = new Styleguide({
+styleguide = new Styleguide({
 	components: {
 		afterCompilation: function(str){
-			console.log('***', str);
 			return str + '<hr>';
 		}
 	}
-}).generate();
+}).generate(function(){
+	console.log('$ end');
+});
