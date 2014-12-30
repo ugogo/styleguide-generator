@@ -30,5 +30,8 @@
     "glob": "^4.3.1",
     "marked": "^0.3.2",
     "mkdirp": "^0.5.0"
+  },
+  "devDependencies": {
+    "extend": "^2.0.0"
   }
 }
