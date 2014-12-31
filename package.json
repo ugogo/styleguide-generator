@@ -1,7 +1,7 @@
 {
   "name": "node-styleguide",
-  "version": "1.1.1",
-  "description": "Markdown-based styleguide generator",
+  "version": "1.1.2",
+  "description": "Components oriented, Markdown styleguide generator",
   "main": "lib/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",

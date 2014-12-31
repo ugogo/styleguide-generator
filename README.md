@@ -35,9 +35,35 @@ var styleguide = new Styleguide({
   * Default: 'example/styleguide/' */
   distFolder: 'styleguide/',
 
-  /* Layout path
-  * Default: 'example/styleguide/layout.html' */
-  layout: 'example/styleguide/layout.html',
+  /* If you don't want to generate a file per component
+   * set active to true
+   * Default: false */
+  onePage: false,
+
+  layout: {
+
+    /* Layout path
+     * Default: 'example/styleguide/layout.html' */
+    path: 'example/styleguide/layout.html',
+
+    title: {
+
+      /* Title str to replace
+       * Default: '<!-- %layout-title% -->' */
+      str: '<!-- %layout-title% -->',
+
+      /* Title new content
+       * Default: 'Styleguide.' */
+      content: 'Styleguide.'
+    },
+
+    content: {
+      /* Content str to replace
+       * It will be replace by the components' Html generated
+       * Default: '<!-- %layout-content% -->' */
+      str: '<!-- %layout-content% -->'
+    }
+  },
 
   components : {
 
@@ -59,23 +85,10 @@ var styleguide = new Styleguide({
     },
 
     /* Modify each Markdown file before compilation
-    * Default: return HtmlStr */
+    * Default: return '<div class="Styleguide-module">' + htmlStr + '</div>'; */
     afterCompilation:  function( HtmlStr ) {
       return 'data prepend on each file' + HtmlStr;
     }
-  },
-
-  onePage: {
-
-    /* If you don't want to generate a file per component
-     * set active to true
-     * Default: false */
-    active: false,
-
-    /* String to replace in the layout
-     * It will be replace by the components' Html generated
-    * Default: '<!-- %onePage-data% -->' */
-    contentStr: '<!-- %onePage-data% -->'
   }
 });
 
@@ -98,23 +111,8 @@ my_project/
       modal.css
       modal.md
   styleguide/
-    index.html
     layout.html
   styleguide.js
-```
-
-
-Will output
-
-```
-my_project/
-  assets/
-    ...
-  styleguide/
-    index.html
-    components/
-      dropdown.html
-      modal.html
 ```
 
 ### One page
@@ -135,13 +133,14 @@ my_project/
 ### Default
 
 Default behavior: generate a file per component.
-The file content will **only** be the Markdown content converted.
+Files content will **only** be Markdown content converted.
 You can specify a folder where all components will be generated -> `components.folder`
+
+### One page
+
+If you set `onePage` to `true`, no external file will be generate and all components will be put into the layout.
+`layout.content.str` will be replace by the content.
 
 ### Default with layout
 
 Todo.
-
-### One page
-
-If you set `onePage.active` to `true`, no external file will be generate and all components will be put into the `onePage.contentStr` into your `layout`
