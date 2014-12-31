@@ -63,6 +63,15 @@ html{font-family:sans-serif;-ms-text-size-adjust:100%;-webkit-text-size-adjust:1
 		font-size: 2em;
 	}
 
+	.Styleguide-module pre {
+		padding: 1em;
+		font-size: .9em;
+		line-height: 1.6;
+		text-align: left;
+		background-color: #ddd;
+		border-radius: 2px;
+	}
+
 
 
 /* Styleguide colors
