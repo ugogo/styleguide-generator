@@ -63,6 +63,10 @@ html{font-family:sans-serif;-ms-text-size-adjust:100%;-webkit-text-size-adjust:1
 		font-size: 2em;
 	}
 
+	.Styleguide-module h2 {
+		margin-top: 1.5em;
+	}
+
 	.Styleguide-module pre {
 		padding: 1em;
 		font-size: .9em;
