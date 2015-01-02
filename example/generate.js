@@ -1,4 +1,4 @@
-var Styleguide = require('../lib/index.js');
+var Styleguide = require('../lib/core.js');
 var styleguide;
 
 styleguide = new Styleguide({
