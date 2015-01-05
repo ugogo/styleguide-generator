@@ -1,6 +1,6 @@
 {
   "name": "node-styleguide",
-  "version": "1.1.40",
+  "version": "1.1.41",
   "description": "Components oriented, Markdown styleguide generator",
   "main": "lib/core.js",
   "scripts": {
@@ -29,9 +29,7 @@
     "del": "^1.1.0",
     "glob": "^4.3.1",
     "marked": "^0.3.2",
-    "mkdirp": "^0.5.0"
-  },
-  "devDependencies": {
+    "mkdirp": "^0.5.0",
     "extend": "^2.0.0"
   }
 }
