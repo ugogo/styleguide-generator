@@ -5,50 +5,73 @@
 npm i node-styleguide
 ```
 
+
+
 ## How it works
+
 - For each `.md` files into your `srcFolder`
-- Convert them to `html` (you can change the extension with `distFilesExtensions` for a better match with your environnement, `.hbs` for example)
-- Output to `distFolder / components.folder`
+- Convert them to `html` (you can change the extension at `components.filesExtension` for a better match with your environnement, like `.hbs` for example)
+- Automatically generate example before your code blocks
+- Output files to `distFolder / components.folder` if `onePage: false`
+
+
 
 ## Usage
-```js
-var Styleguide = require('node-styleguide');
-var styleguide;
 
-styleguide = new Styleguide(opts).generate(cb);
+```js
+var Styleguide = require('../lib/core.js');
+
+var opts = {
+  onePage: false
+};
+
+var MyStyleguide = new Styleguide( opts );
+
+MyStyleguide.generate( function () {
+  console.log( '__END__ ');
+});
+
+/* or shortcut
+ *
+ * MyStyleguide = new Styleguide({
+ *   onePage: false
+ * }).generate( function () {
+ *   console.log( '__END__');
+ * });
+ */
 ```
+
+
 
 ## Options
 
 ```js
-// styleguide.js
-
-var Styleguide = require('../lib/index.js');
-
-var styleguide = new Styleguide({
+{
 
   /* Folder where your .md files are located
-  * Default: 'example/assets/css/' */
+   * Default: 'example/assets/css/' */
   srcFolder: 'assets/css/',
 
   /* Folder where your styleguide is located
-  * Default: 'example/styleguide/' */
+   * Default: 'example/styleguide/' */
   distFolder: 'styleguide/',
 
   /* If you don't want to generate a file per component
-   * set active to true
+   * set it to true
    * Default: false */
   onePage: false,
+
+
 
   layout: {
 
     /* Layout path
      * Default: 'example/styleguide/layout.html' */
-    path: 'example/styleguide/layout.html',
+    path: 'styleguide/layout.html',
 
     title: {
 
-      /* Title str to replace
+      /* Title string to replace
        * Default: '<!-- %layout-title% -->' */
       str: '<!-- %layout-title% -->',
 
@@ -58,50 +81,49 @@ var styleguide = new Styleguide({
     },
 
     content: {
-      /* Content str to replace
+
+      /* Content string to replace
        * It will be replace by the components' Html generated
        * Default: '<!-- %layout-content% -->' */
       str: '<!-- %layout-content% -->'
     }
   },
 
+
+
   components : {
 
-    /* Folder where your components files will be generated
-    * Can be blank
-    * Default :'components/' */
+    /* Folder where your components files will be generated (can be blank)
+     * Default: 'components/' */
     folder: '',
 
-    /* Specify your compnents files extension
-    * Can be what you want (.html, .hbs...)
-    * But files will only be compiled in .html
-    * Default: '.html' */
+    /* Specify your components files extension
+     * Can be what you want (.html, .hbs...)
+     * But files will only be compiled in .html
+     * Default: '.html' */
     filesExtension: 'html',
 
     /* Modify each Markdown file content before compilation
-    * Default: return MardowknStr */
+     * Default: return MardowknStr */
     beforeCompilation: function( MardowknStr ) {
       return MardowknStr + 'data appended on each file';
     },
 
-    /* Modify each Markdown file before compilation
-    * Default: return '<div class="Styleguide-module">' + htmlStr + '</div>'; */
+    /* Modify each Markdown file after compilation
+     * Default: return '<div class="Styleguide-module">' + htmlStr + '</div>'; */
     afterCompilation:  function( HtmlStr ) {
       return 'data prepend on each file' + HtmlStr;
     }
   }
-});
 
-styleguide.generate();
+};
 ```
 
 ## Example
 
-### Normal
+### Files
 
-```js
-// project folder (srcFolder)
-
+```
 my_project/
   assets/
     css/
@@ -112,10 +134,33 @@ my_project/
       modal.md
   styleguide/
     layout.html
-  styleguide.js
+  generate-styleguide.js
 ```
 
-### One page
+
+### Default
+
+Generate a file per component into `components.folder`
+
+Will output
+
+```
+my_project/
+  assets/
+    ...
+  styleguide/
+    components/
+      modal.md
+      dropdown.md
+    index.html
+    layout.html
+  generate-styleguide.js
+```
+
+
+### OnePage
+
+No external file will be generated and all components will be put into `index.html`.
 
 Will output
 
@@ -126,21 +171,29 @@ my_project/
   styleguide/
     index.html
     layout.html
+  generate-styleguide.js
 ```
 
-## Usages
 
-### Default
 
-Default behavior: generate a file per component.
-Files content will **only** be Markdown content converted.
-You can specify a folder where all components will be generated -> `components.folder`
+# The MIT License (MIT)
 
-### One page
+Copyright (c) 2015 Ugo Onali (http://twitter.com/onaliugo)
 
-If you set `onePage` to `true`, no external file will be generate and all components will be put into the layout.
-`layout.content.str` will be replace by the content.
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
 
-### Default with layout
+The above copyright notice and this permission notice shall be included in
+all copies or substantial portions of the Software.
 
-Todo.
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+THE SOFTWARE.
