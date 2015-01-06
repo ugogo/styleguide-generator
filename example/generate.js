@@ -1,10 +1,8 @@
 var Styleguide = require('../lib/core.js');
 
-var opts = {
-	onePage: false
-};
-
-var MyStyleguide = new Styleguide( opts );
+var MyStyleguide = new Styleguide({
+	onePage: true
+});
 
 MyStyleguide.generate( function () {
 	console.log('__END__');

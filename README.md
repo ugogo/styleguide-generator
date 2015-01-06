@@ -69,24 +69,10 @@ MyStyleguide.generate( function () {
      * Default: 'example/styleguide/layout.html' */
     path: 'styleguide/layout.html',
 
-    title: {
-
-      /* Title string to replace
-       * Default: '<!-- %layout-title% -->' */
-      str: '<!-- %layout-title% -->',
-
-      /* Title new content
-       * Default: 'Styleguide.' */
-      content: 'Styleguide.'
-    },
-
-    content: {
-
-      /* Content string to replace
-       * It will be replace by the components' Html generated
-       * Default: '<!-- %layout-content% -->' */
-      str: '<!-- %layout-content% -->'
-    }
+    /* Content string to replace
+     * It will be replace by the components' Html generated
+     * Default: '<!-- %layout-content% -->' */
+    contentStr: '<!-- %layout-content% -->'
   },
 
 
