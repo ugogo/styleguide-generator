@@ -1,6 +1,6 @@
 {
   "name": "node-styleguide",
-  "version": "1.1.61",
+  "version": "1.1.62",
   "description": "Components oriented, Markdown styleguide generator",
   "main": "lib/index.js",
   "scripts": {
@@ -26,11 +26,9 @@
   },
   "homepage": "https://github.com/onaliugo/node-styleguide",
   "dependencies": {
-    "del": "^1.1.0",
     "extend": "^2.0.0",
-    "glob": "^4.3.1",
     "highlight.js": "^8.4.0",
     "marked": "^0.3.2",
-    "mkdirp": "^0.5.0"
+    "uo-node-utils": "0.0.22"
   }
 }
