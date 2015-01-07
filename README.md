@@ -61,6 +61,10 @@ MyStyleguide.generate( function () {
    * Default: false */
   onePage: false,
 
+  /* Where you colors file is located
+   * For generate colors module
+   * Default: 'example/assets/css/_colors.scss' */
+  colorsPath: 'example/assets/css/_colors.scss',
 
 
   layout: {
