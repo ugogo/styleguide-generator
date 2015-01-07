@@ -1,4 +1,4 @@
-var Styleguide = require('../lib/core.js');
+var Styleguide = require('../lib/index.js');
 
 var MyStyleguide = new Styleguide({
 	onePage: true

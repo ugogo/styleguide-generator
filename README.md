@@ -19,7 +19,7 @@ npm i node-styleguide
 ## Usage
 
 ```js
-var Styleguide = require('../lib/core.js');
+var Styleguide = require('node-styleguide');
 
 var opts = {
   onePage: false
@@ -28,7 +28,7 @@ var opts = {
 var MyStyleguide = new Styleguide( opts );
 
 MyStyleguide.generate( function () {
-  console.log( '__END__ ');
+  console.log( '\n__END__\n');
 });
 
 /* or shortcut
@@ -43,7 +43,7 @@ MyStyleguide.generate( function () {
 
 
 
-## Options
+## Opts
 
 ```js
 {
@@ -102,7 +102,7 @@ MyStyleguide.generate( function () {
     }
   }
 
-};
+}
 ```
 
 ## Example
