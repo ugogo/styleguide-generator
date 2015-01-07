@@ -92,17 +92,16 @@ html{font-family:sans-serif;-ms-text-size-adjust:100%;-webkit-text-size-adjust:1
 	.Styleguide-colorWrapper {
 		display: inline-block;
 		width: 8em;
-		margin-right: .5em;
+		margin: 0 .5em .5em 0;
 		list-style-type: none;
 	}
 
 		.Styleguide-colorItem {
 			height: 6em;
+			border: 1px solid #aaa;
+			border-bottom: 0;
 			border-top-left-radius: 3px;
 			border-top-right-radius: 3px;
-		}
-		.Styleguide-colorItem:after {
-			content: attr(data-pouet);
 		}
 
 		.Styleguide-colorDescription {

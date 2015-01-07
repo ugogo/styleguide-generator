@@ -1,0 +1,28 @@
+
+$black: #000 !default;
+
+$blue: darken($amber, 10%);
+$amber: #FEC006;
+
+// this is a short comment
+
+$green: #4BAE4F;
+
+
+/* This
+ * is
+ * a
+ * long
+ * comment */
+
+$cyan: #00BBD3;
+
+
+/* Truc truc
+*/
+
+// other comments
+
+$grey: rgba(0,0,0, .5);
+
+$green2: $black;
