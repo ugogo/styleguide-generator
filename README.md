@@ -81,7 +81,7 @@ MyStyleguide.generate( function () {
 
 
 
-  components : {
+  components: {
 
     /* Folder where your components files will be generated (can be blank)
      * Default: 'components/' */
@@ -104,6 +104,17 @@ MyStyleguide.generate( function () {
     afterCompilation:  function( HtmlStr ) {
       return 'data prepend on each file' + HtmlStr;
     }
+  },
+
+  mdConverter: {
+
+    /* All options can be founded here: https://github.com/chjj/marked#block-level-renderer-methods
+     * Example (default behavior) with headings below */
+     heading: function (text, level) {
+       var escapedText = text.toLowerCase().replace(/[^\w]+/g, '-');
+       var _class = 'Styleguide-title--' + level;
+       return '<h' + level + ' id="' + escapedText + '" class="' + _class + '">' + text + '</h' + level + '>';
+     }
   }
 
 }
