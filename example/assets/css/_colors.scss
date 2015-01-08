@@ -2,6 +2,7 @@
 $black: #000 !default;
 
 $blue: darken($amber, 10%);
+
 $amber: #FEC006;
 
 // this is a short comment
@@ -25,4 +26,10 @@ $cyan: #00BBD3;
 
 $grey: rgba(0,0,0, .5);
 
-$green2: $black;
+$green2: $green;
+
+$cyan2: $amber;
+
+$green3: $green2;
+
+$truc: $green3;
