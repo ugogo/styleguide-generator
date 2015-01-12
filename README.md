@@ -1,8 +1,8 @@
-# Node styleguide
+# Styleguide generator
 
 ## Install
 ```
-npm i node-styleguide
+npm i styleguide-generator
 ```
 
 
@@ -19,7 +19,7 @@ npm i node-styleguide
 ## Usage
 
 ```js
-var Styleguide = require('node-styleguide');
+var Styleguide = require('styleguide-generator');
 
 var opts = {
   onePage: false
