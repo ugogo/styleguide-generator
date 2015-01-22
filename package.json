@@ -1,12 +1,12 @@
 {
   "name": "styleguide-generator",
-  "version": "0.2.22",
+  "version": "0.2.23",
   "description": "Components oriented, Markdown styleguide generator",
   "main": "lib/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "generate": "node example/generate.js",
-    "generate onepage": "node example/generate.js onepage"
+    "onepage": "node example/generate.js --onepage"
   },
   "repository": {
     "type": "git",

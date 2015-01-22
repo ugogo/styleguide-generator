@@ -1,5 +1,5 @@
 var Styleguide = require('../lib/index.js');
-var isOnePage = process.argv[2] === 'onepage';
+var isOnePage = process.argv[2] === '--onepage';
 
 var MyStyleguide = new Styleguide({
 	onePage: isOnePage || false
