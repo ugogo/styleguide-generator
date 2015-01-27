@@ -46,39 +46,37 @@ MyStyleguide.generate( function () {
 ## Opts
 
 ```js
-{
+var defaultOpts = {
 
-  /* Folder where your .md files are located
-   * Default: 'example/assets/css/' */
+  /* Folder where your .md files are located */
   srcFolder: 'assets/css/',
 
-  /* Folder where your styleguide is located
-   * Default: 'example/styleguide/' */
-  distFolder: 'styleguide/',
+  /* Folder where your styleguide is located */
+  distFolder: 'example/styleguide/',
 
   /* If you don't want to generate a file per component
-   * set it to true
-   * Default: false */
+   * set it to true */
   onePage: false,
 
   /* Where you colors file is located
-   * For generate colors module
-   * Default: 'example/assets/css/_colors.scss' */
+   * For generate colors module */
   colorsPath: 'example/assets/css/_colors.scss',
 
+  /* Layout path
+   * Default: 'example/styleguide/layout.html' */
+  layoutPath: 'styleguide/layout.html',
 
-  layout: {
-
-    /* Layout path
-     * Default: 'example/styleguide/layout.html' */
-    path: 'styleguide/layout.html',
-
-    /* Content string to replace
-     * It will be replace by the components' Html generated
-     * Default: '<!-- %layout-content% -->' */
-    contentStr: '<!-- %layout-content% -->'
+  /* Modify each Markdown file content before compilation
+   * Default: return MardowknStr */
+  beforeCompilation: function( MardowknStr ) {
+    return MardowknStr + 'data appended on each file';
   },
 
+  /* Modify each Markdown file after compilation
+   * Default: return '<div class="Styleguide-module">' + htmlStr + '</div>'; */
+  afterCompilation:  function( HtmlStr ) {
+    return 'data prepend on each file' + HtmlStr;
+  },
 
 
   components: {
@@ -89,21 +87,8 @@ MyStyleguide.generate( function () {
 
     /* Specify your components files extension
      * Can be what you want (.html, .hbs...)
-     * But files will only be compiled in .html
-     * Default: '.html' */
-    filesExtension: 'html',
-
-    /* Modify each Markdown file content before compilation
-     * Default: return MardowknStr */
-    beforeCompilation: function( MardowknStr ) {
-      return MardowknStr + 'data appended on each file';
-    },
-
-    /* Modify each Markdown file after compilation
-     * Default: return '<div class="Styleguide-module">' + htmlStr + '</div>'; */
-    afterCompilation:  function( HtmlStr ) {
-      return 'data prepend on each file' + HtmlStr;
-    }
+     * But files will only be compiled in html */
+    filesExtension: 'html'
   },
 
   mdConverter: {
