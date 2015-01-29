@@ -6,5 +6,5 @@ var MyStyleguide = new Styleguide({
 });
 
 MyStyleguide.generate( function () {
-	console.log('\n__END__\n');
+	console.log('✓ Styleguide generated\n');
 });

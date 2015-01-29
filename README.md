@@ -48,6 +48,9 @@ MyStyleguide.generate( function () {
 ```js
 var defaultOpts = {
 
+  /* Log message when action is done */
+  silent: false,
+
   /* Folder where your .md files are located */
   srcFolder: 'assets/css/',
 
