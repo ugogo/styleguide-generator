@@ -62,7 +62,8 @@ var defaultOpts = {
   onePage: false,
 
   /* Where you colors file is located
-   * For generate colors module */
+   * For generate colors module
+   * Default: undefined */
   colorsPath: 'example/assets/css/_colors.scss',
 
   /* Layout path
