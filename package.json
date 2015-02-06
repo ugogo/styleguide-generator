@@ -1,6 +1,6 @@
 {
   "name": "styleguide-generator",
-  "version": "0.2.4",
+  "version": "0.2.41",
   "description": "Components oriented, Markdown styleguide generator",
   "main": "lib/index.js",
   "scripts": {

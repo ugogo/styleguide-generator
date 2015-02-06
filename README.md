@@ -22,10 +22,10 @@ npm i styleguide-generator
 var Styleguide = require('styleguide-generator');
 
 var opts = {
-  onePage: false
+  onePage: true
 };
 
-var MyStyleguide = new Styleguide( opts );
+var MyStyleguide = new Styleguide(opts);
 
 MyStyleguide.generate( function () {
   console.log( '\n__END__\n');
@@ -34,7 +34,7 @@ MyStyleguide.generate( function () {
 /* or shortcut
  *
  * MyStyleguide = new Styleguide({
- *   onePage: false
+ *   onePage: true
  * }).generate( function () {
  *   console.log( '__END__');
  * });
@@ -60,6 +60,11 @@ var defaultOpts = {
   /* If you don't want to generate a file per component
    * set it to true */
   onePage: false,
+
+  /* When generating components,
+   * if components' path has indexOf of one of this array,
+   * it will be ignore */
+  ignore: ['myIgnoredFile.md', 'myIgnoredFolder/', 'myIgnoredString'],
 
   /* Where you colors file is located
    * For generate colors module
