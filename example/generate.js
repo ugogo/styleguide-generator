@@ -16,10 +16,10 @@ new Styleguide ({
 		},
 		afterCompilation: function (str) {
 			return str;
-		},
+		}
 	},
 
-	type: 'components',
+	type: 'onepage',
 	layout: 'example/styleguide/layout.html',
 
 	mdConverter: {
