@@ -5,8 +5,7 @@
   "main": "lib/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "generate": "node example/generate.js",
-    "onepage": "node example/generate.js --onepage"
+    "generate": "node example/generate.js"
   },
   "repository": {
     "type": "git",
@@ -30,6 +29,6 @@
     "extend": "^2.0.0",
     "highlight.js": "^8.4.0",
     "marked": "^0.3.2",
-    "uo-node-utils": "0.0.41"
+    "uo-node-utils": "0.1.1"
   }
 }
