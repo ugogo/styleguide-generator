@@ -4,13 +4,13 @@ new Styleguide ({
 	files: {
 		src: 'example/assets/css/',
 		dist: 'dist',
-		colors: false,
+		colors: 'example/assets/css/_colors.scss',
 		ignore: []
 	},
 
 	components: {
 		wrap: 'components/',
-		extensions: 'html',
+		extension: 'html',
 		beforeCompilation: function (str) {
 			return str;
 		},
@@ -19,7 +19,7 @@ new Styleguide ({
 		},
 	},
 
-	type: 'one-page',
+	type: 'components',
 	layout: 'example/styleguide/layout.html',
 
 	mdConverter: {
