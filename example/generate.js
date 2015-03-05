@@ -5,7 +5,7 @@ new Styleguide ({
 		src: 'example/assets/css/',
 		dist: 'dist',
 		colors: false,
-		ignore: null
+		ignore: []
 	},
 
 	components: {
@@ -19,8 +19,8 @@ new Styleguide ({
 		},
 	},
 
-	layout: 'example/styleguide/layout.html',
 	type: 'one-page',
+	layout: 'example/styleguide/layout.html',
 
 	mdConverter: {
 		heading: function (text, level) {
@@ -29,7 +29,9 @@ new Styleguide ({
 
 			return '<h' + level + ' id="' + escapedText + '" class="' + _class + '">' + text + '</h' + level + '>';
 		}
-	}
+	},
+
+	silent: false
 })
 .generate(function () {
 	console.log('✓ Styleguide generated\n');
