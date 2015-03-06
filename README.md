@@ -21,8 +21,11 @@ npm install --save-dev styleguide-generator
 var Styleguide = require('styleguide-generator');
 
 var styleguide = new Styleguide({
-  type: 'onepage'
-  layout: 'path/to/layout.html',
+  type: 'onepage',
+  onepage: {
+    layout: 'path/to/layout.html',
+    stylesheets: ['path/to/styleguide.css']
+  }
   components: {
     extension: 'html',
     beforeCompilation: function (str, path) {
@@ -98,10 +101,19 @@ var defaultOpts = {
 
 	type: 'components',
 
-  /* layout: 'string'
-   * path to your layout (for onepage) */
+  /* onepage {}
+   * onepage options
 
-	layout: 'styleguide-layout.html',
+   * onepage.layout: 'string'
+   * path to your layout (for onepage)
+
+   * onepage.stylesheets: []
+   * array of css files (will be inline in head) */
+
+  onepage: {
+    layout: layout: 'styleguide-layout.html',
+    stylesheets: ['path/to/styleguide.css']
+  },
 
   /* silent: boolean
    * log a message when action is done
