@@ -1,12 +1,10 @@
 {
   "name": "styleguide-generator",
-  "version": "0.2.5",
+  "version": "0.3.0",
   "description": "Components oriented, Markdown styleguide generator",
   "main": "lib/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "generate": "node example/generate.js",
-    "onepage": "node example/generate.js --onepage"
+    "generate": "node example/generate.js"
   },
   "repository": {
     "type": "git",
@@ -15,10 +13,9 @@
   "keywords": [
     "node",
     "styleguide",
-    "generator",
     "webstyleguide",
-    "documentation",
-    "node"
+    "generator",
+    "documentation"
   ],
   "author": "Ugo Onali",
   "license": "MIT",
@@ -30,6 +27,6 @@
     "extend": "^2.0.0",
     "highlight.js": "^8.4.0",
     "marked": "^0.3.2",
-    "uo-node-utils": "0.0.41"
+    "uo-node-utils": "0.1.1"
   }
 }

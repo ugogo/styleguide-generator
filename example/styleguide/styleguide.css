@@ -21,13 +21,38 @@ html{font-family:sans-serif;-ms-text-size-adjust:100%;-webkit-text-size-adjust:1
 
 
 
+/* Styleguide-navWrapper
+ * Styleguide-navItem
+ * Styleguide-navLink */
+
+.Styleguide-navWrapper {
+	margin: 0;
+	padding: 1em 0 0 0;
+}
+
+	.Styleguide-navItem {
+		display: inline-block;
+	}
+
+		.Styleguide-navLink {
+			display: block;
+			padding: .5em 1em;
+			font-size: 1.2em;
+			line-height: 1.5;
+			font-weight: lighter;
+			text-decoration: none;
+			color: #fff;
+		}
+
+
+
 /* Styleguide header
  * Styleguide-headerTitle */
 
 .Styleguide-header {
 	font-family: Helvetica, Arial, sans-serif;
 	margin-bottom: 1em;
-	padding: 3.5em 0 3.6em 0;
+	padding: 3.5em 0 2em 0;
 	text-align: center;
 	background-color: #009788;
 }

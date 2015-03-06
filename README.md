@@ -2,171 +2,160 @@
 
 ## Install
 ```
-npm i styleguide-generator
+npm install --save-dev styleguide-generator
 ```
 
 
 
 ## How it works
 
-- For each `.md` files into your `srcFolder`
-- Convert them to `html` (you can change the extension at `components.filesExtension` for a better match with your environnement, like `.hbs` for example)
-- Automatically generate example before your code blocks
-- Output files to `distFolder / components.folder` if `onePage: false`
+- Each `.md` files into your `files.src` will be convert (files extension can be change in `components.extension`)
+- Files will be output to `files.dist`. If `type: 'components'`, files will be output in `files.dist + components.wrap`
+- An example will be automatically generate before code blocks
 
 
 
-## Usage
+## Usage example
 
 ```js
 var Styleguide = require('styleguide-generator');
 
-var opts = {
-  onePage: true
-};
-
-var MyStyleguide = new Styleguide(opts);
-
-MyStyleguide.generate( function () {
-  console.log( '\n__END__\n');
+var styleguide = new Styleguide({
+  type: 'onepage',
+  onepage: {
+    layout: 'path/to/layout.html',
+    stylesheets: ['path/to/styleguide.css']
+  }
+  components: {
+    extension: 'html',
+    beforeCompilation: function (str, path) {
+      return str + 'data append on each file';
+    }
+  }
+}).generate(function () {
+  return console.log('✓ Styleguide generated\n');
 });
-
-/* or shortcut
- *
- * MyStyleguide = new Styleguide({
- *   onePage: true
- * }).generate( function () {
- *   console.log( '__END__');
- * });
- */
 ```
 
 
 
-## Opts
+## Default options
 
 ```js
 var defaultOpts = {
 
-  /* Log message when action is done */
-  silent: false,
+  /* files {}
 
-  /* Folder where your .md files are located */
-  srcFolder: 'assets/css/',
+   * files.src: 'string'
+   * folder where your .md files are located
 
-  /* Folder where your styleguide is located */
-  distFolder: 'example/styleguide/',
+   * files.dist: 'string'
+   * where your files will be output
 
-  /* If you don't want to generate a file per component
-   * set it to true */
-  onePage: false,
+   * files.colors: 'string' | false
+   * path to your colors file
 
-  /* When generating components,
-   * if components' path has indexOf of one of this array,
-   * it will be ignore */
-  ignore: ['myIgnoredFile.md', 'myIgnoredFolder/', 'myIgnoredString'],
+   * files.ignore: []
+   * array to strings to ignore
+   */
 
-  /* Where you colors file is located
-   * For generate colors module
-   * Default: undefined */
-  colorsPath: 'example/assets/css/_colors.scss',
+	files: {
+		src: 'assets/css/',
+		dist: 'dist',
+		colors: 'assets/css/_colors.scss',
+    	ignore: ['myIgnoredFile.md', 'myIgnoredFolder/', 'myIgnoredString']
+	},
 
-  /* Layout path
-   * Default: 'example/styleguide/layout.html' */
-  layoutPath: 'styleguide/layout.html',
+  /* components {}
 
-  /* Modify each Markdown file content before compilation
-   * Default: return MardowknStr */
-  beforeCompilation: function( MardowknStr ) {
-    return MardowknStr + 'data appended on each file';
+   * components.wrap: 'string'
+   * wrap your components into a folder, can be blank
+
+   * components.extension: 'string'
+   * specify your components files extension
+   * but files will be compiled in html (for now)
+
+   * components.beforeCompilation: function
+   * modify each .md file before compilation
+   * must return a string
+
+   * components.afterCompilation: function
+   * modify each converted file after compilation
+   * must return a string
+   */
+
+	components: {
+		wrap: 'components/',
+    	extension: 'html',
+		beforeCompilation: function (str) {
+			return str;
+		},
+		afterCompilation: function (str) {
+			return str;
+		}
+	},
+
+  /* type: 'string' -> 'components' || 'onepage'
+   * generate a file per component
+   * or a single page */
+
+	type: 'components',
+
+  /* onepage {}
+   * onepage options
+
+   * onepage.layout: 'string'
+   * path to your layout (for onepage)
+
+   * onepage.stylesheets: []
+   * array of css files (will be inline in head) */
+
+  onepage: {
+    layout: layout: 'styleguide-layout.html',
+    stylesheets: ['path/to/styleguide.css']
   },
 
-  /* Modify each Markdown file after compilation
-   * Default: return '<div class="Styleguide-module">' + htmlStr + '</div>'; */
-  afterCompilation:  function( HtmlStr ) {
-    return 'data prepend on each file' + HtmlStr;
-  },
+  /* silent: boolean
+   * log a message when action is done
+   * -> uo-node-utils package */
 
-
-  components: {
-
-    /* Folder where your components files will be generated (can be blank)
-     * Default: 'components/' */
-    folder: '',
-
-    /* Specify your components files extension
-     * Can be what you want (.html, .hbs...)
-     * But files will only be compiled in html */
-    filesExtension: 'html'
-  },
-
-  mdConverter: {
-
-    /* All options can be founded here: https://github.com/chjj/marked#block-level-renderer-methods
-     * Example (default behavior) with headings below */
-     heading: function (text, level) {
-       var escapedText = text.toLowerCase().replace(/[^\w]+/g, '-');
-       var _class = 'Styleguide-title--' + level;
-       return '<h' + level + ' id="' + escapedText + '" class="' + _class + '">' + text + '</h' + level + '>';
-     }
-  }
-
-}
+	silent: false
+};
 ```
 
-## Example
+
 
 ### Files
 
 ```
-my_project/
-  assets/
-    css/
-      dropdown/
-        dropdown.css
-        dropdown.md
-      modal.css
-      modal.md
-  styleguide/
-    layout.html
-  generate-styleguide.js
+.project/
+—— css/
+———— dropdown/
+—————— dropdown.css
+—————— dropdown.md
+———— modal.css
+———— modal.md
+—— styleguide/
+———— layout.html
+———— generate.js
 ```
 
+### generate.js
 
-### Default
+```js
+// ...
 
-Generate a file per component into `components.folder`
+new styleguide({
+  files: {
+    src: '../css/'
+    dist: '../dist'
+  },
+  type: 'onepage',
+  layout: 'layout.html'
+})
+.generate();
 
-Will output
-
-```
-my_project/
-  assets/
-    ...
-  styleguide/
-    components/
-      modal.md
-      dropdown.md
-    index.html
-    layout.html
-  generate-styleguide.js
-```
-
-
-### OnePage
-
-No external file will be generated and all components will be put into `index.html`.
-
-Will output
-
-```
-my_project/
-  assets/
-    ...
-  styleguide/
-    index.html
-    layout.html
-  generate-styleguide.js
+// ...
 ```
 
 

@@ -1,5 +1,4 @@
 .DS_Store
 
 node_modules/
-example/styleguide/components/
-example/styleguide/index.html
+dist/
