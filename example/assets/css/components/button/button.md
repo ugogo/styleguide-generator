@@ -15,3 +15,9 @@
 <button class="Button Button--blue">Button blue</button>
 <button class="Button Button--green">Button green</button>
 ```
+
+## Escaped code
+
+```esc
+ <button class="Button">Hello</button>
+```
