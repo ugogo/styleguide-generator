@@ -9,32 +9,45 @@ npm install --save-dev styleguide-generator
 
 ## How it works
 
-- Each `.md` files into your `files.src` will be convert (files extension can be change in `components.extension`)
-- Files will be output to `files.dist`. If `type: 'components'`, files will be output in `files.dist + components.wrap`
-- An example will be automatically generate before code blocks
+- Each `.md` files into your `opts.files.src` will be convert (files extension can be change in `opts.components.extension`)
+- Files will be output to `opts.files.dist`. If `opts.type: 'components'`, files will be output in `opts.files.dist + opts.components.wrap`
+- An example will be automatically generate before code blocks. If you don't want it, set `esc` as language.
 
 
 
 ## Usage example
 
-```js
-var Styleguide = require('styleguide-generator');
+### Files
 
-var styleguide = new Styleguide({
+```
+.project/
+—— css/
+———— dropdown/
+—————— dropdown.css
+—————— dropdown.md
+———— modal.css
+———— modal.md
+—— styleguide/
+———— layout.html
+———— generate.js
+```
+
+### generate.js
+
+```js
+// ...
+
+new styleguide({
+  files: {
+    src: '../css'
+    dist: '../dist'
+  },
   type: 'onepage',
-  onepage: {
-    layout: 'path/to/layout.html',
-    stylesheets: ['path/to/styleguide.css']
-  }
-  components: {
-    extension: 'html',
-    beforeCompilation: function (str, path) {
-      return str + 'data append on each file';
-    }
-  }
-}).generate(function () {
-  return console.log('✓ Styleguide generated\n');
-});
+  layout: 'layout.html'
+})
+.generate();
+
+// ...
 ```
 
 
@@ -121,41 +134,6 @@ var defaultOpts = {
 
 	silent: false
 };
-```
-
-
-
-### Files
-
-```
-.project/
-—— css/
-———— dropdown/
-—————— dropdown.css
-—————— dropdown.md
-———— modal.css
-———— modal.md
-—— styleguide/
-———— layout.html
-———— generate.js
-```
-
-### generate.js
-
-```js
-// ...
-
-new styleguide({
-  files: {
-    src: '../css/'
-    dist: '../dist'
-  },
-  type: 'onepage',
-  layout: 'layout.html'
-})
-.generate();
-
-// ...
 ```
 
 
