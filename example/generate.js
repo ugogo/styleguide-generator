@@ -1,11 +1,10 @@
 var Styleguide = require('../lib/index.js');
 
-new Styleguide({
+var styleguide = new Styleguide({
 	files: {
 		src: 'example/assets/css/',
 		colors: 'example/assets/css/_colors.scss'
 	},
-	type: 'onepage',
 	onepage: {
 		layout: 'example/styleguide/layout.html',
 		stylesheets: [
@@ -16,7 +15,10 @@ new Styleguide({
 			'example/assets/css/components/button/sizes.css'
 		]
 	}
-})
-.generate(function () {
+}).generate(function () {
 	console.log('✓ Styleguide generated\n');
 });
+
+// You can access options
+// and components like this
+console.log(styleguide);

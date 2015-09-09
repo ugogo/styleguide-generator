@@ -1,12 +1,6 @@
 /* Normalize */
 html{font-family:sans-serif;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%}body{margin:0}article,aside,details,figcaption,figure,footer,header,hgroup,main,menu,nav,section,summary{display:block}audio,canvas,progress,video{display:inline-block;vertical-align:baseline}audio:not([controls]){display:none;height:0}[hidden],template{display:none}a{background-color:transparent}a:active,a:hover{outline:0}abbr[title]{border-bottom:1px dotted}b,strong{font-weight:700}dfn{font-style:italic}h1{font-size:2em;margin:.67em 0}mark{background:#ff0;color:#000}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sup{top:-.5em}sub{bottom:-.25em}img{border:0}svg:not(:root){overflow:hidden}figure{margin:1em 40px}hr{-moz-box-sizing:content-box;box-sizing:content-box;height:0}pre{overflow:auto}code,kbd,pre,samp{font-family:monospace,monospace;font-size:1em}button,input,optgroup,select,textarea{color:inherit;font:inherit;margin:0}button{overflow:visible}button,select{text-transform:none}button,html input[type="button"],/* 1 */ input[type="reset"],input[type="submit"]{-webkit-appearance:button;cursor:pointer}button[disabled],html input[disabled]{cursor:default}button::-moz-focus-inner,input::-moz-focus-inner{border:0;padding:0}input{line-height:normal}input[type="checkbox"],input[type="radio"]{box-sizing:border-box;padding:0}input[type="number"]::-webkit-inner-spin-button,input[type="number"]::-webkit-outer-spin-button{height:auto}input[type="search"]{-webkit-appearance:textfield;-moz-box-sizing:content-box;-webkit-box-sizing:content-box;box-sizing:content-box}input[type="search"]::-webkit-search-cancel-button,input[type="search"]::-webkit-search-decoration{-webkit-appearance:none}fieldset{border:1px solid silver;margin:0 2px;padding:.35em .625em .75em}legend{border:0;padding:0}textarea{overflow:auto}optgroup{font-weight:700}table{border-collapse:collapse;border-spacing:0}td,th{padding:0}
 
-
-
-.Styleguide-navWrapper ~ .Styleguide-navItem {
-	display: none;
-}
-
 body {
 	background: #fff;
 	font-family: 'Open Sans', 'Georgia', sans-serif;
@@ -14,15 +8,15 @@ body {
 
 
 /* Styleguide generals
- * Styleguide-title */
+ * s-Title */
 
-.Styleguide-title {
+.s-Title {
 	padding-bottom: .4em;
 	font-size: 2.5em;
 	font-weight: 400;
 }
 
-.Styleguide-modulesContainer {
+.s-Container {
 	padding: 0 0 0 25%;
 	text-align: left;
 }
@@ -30,9 +24,9 @@ body {
 
 
 /* Styleguide header
- * Styleguide-headerTitle */
+ * s-Header-title */
 
-.Styleguide-header {
+.s-Header {
 	position: fixed;
 	top: 0; right: 0; left: 0;
 	padding: .8rem 3em;
@@ -41,7 +35,7 @@ body {
 	z-index: 10;
 }
 
-	.Styleguide-headerTitle {
+	.s-Header-title {
 		margin: 0; padding: 0;
 		font-size: 1.2em;
 		text-transform: uppercase;
@@ -52,44 +46,44 @@ body {
 
 
 /* Styleguide module
- * Styleguide-moduleTitle */
+ * s-ModuleTitle */
 
-.Styleguide-module {
+.s-Module {
 	padding: 8em 2em .8em 2em;
 	background-color: #fff;
 	border-radius: 3px;
 }
 
-	.Styleguide-title--1,
-	.Styleguide-title--2,
-	.Styleguide-title--3,
-	.Styleguide-title--4 {
+	.s-Title--1,
+	.s-Title--2,
+	.s-Title--3,
+	.s-Title--4 {
 		font-weight: 600;
 		color: #484848;
 		outline: 0;
 	}
 
 
-	.Styleguide-title--1 {
+	.s-Title--1 {
 		margin: 0 0 1.6rem 0;
     font-size: 2.4rem;
 		line-height: 3.2rem;
 		font-weight: 400;
 	}
 
-	.Styleguide-title--2 {
+	.s-Title--2 {
 		margin-top: 2em;
 		margin-bottom: 1em;
 		font-size: 1.8em;
 	}
 
-	.Styleguide-title--3 {
+	.s-Title--3 {
 		font-size: 1.5em;
 		margin-top: 2em;
 		font-weight: 400;
 	}
 
-	.Styleguide-module pre {
+	.s-Module pre {
 		position: relative;
 		margin: 1.5em auto;
 		padding: 3.2rem 1em 1.6rem;
@@ -101,7 +95,7 @@ body {
 		border: 1px solid #ededed;
 	}
 
-	.Styleguide-module pre:before {
+	.s-Module pre:before {
 		content: "code";
 		position: absolute;
 		top: 0; left: 0; right: 0;
@@ -115,41 +109,40 @@ body {
 		color: #fff;
 	}
 
-  .Styleguide-module--grid .Column {
+  .s-Module--grid .Column {
     background: #AED7E8;
     text-align: center;
     padding: 1rem 0;
     border-right: 1px solid #FFF;
     border-top: 1px solid #FFF;
   }
-  .Styleguide-module--grid .Column:last-child {
+  .s-Module--grid .Column:last-child {
     border-right: 0;
   }
 
 /* Styleguide colors
- * Styleguide-module--colors
- * Styleguide-colors
- * Styleguide-colorWrapper
- * Styleguide-colorItem
- * Styleguide-colorDescription */
+ * s-Module--colors
+ * s-Color-wrapper
+ * s-Color
+ * s-Color-desc */
 
-.Styleguide-module--colors {
+.s-Module--colors {
 }
 
-	.Styleguide-colorWrapper {
+	.s-Color-wrapper {
 		display: inline-block;
 		width: 23.5%;
 		margin: 0 1% 1.6rem 0;
 		list-style-type: none;
 	}
 
-		.Styleguide-colorItem {
+		.s-Color {
 			height: 6.4rem;
 			border-top-left-radius: 3px;
 			border-top-right-radius: 3px;
 		}
 
-		.Styleguide-colorDescription {
+		.s-Color-desc {
 			font-size: 1em;
 			line-height: 1.6rem;
 			color: #999;
@@ -157,69 +150,3 @@ body {
 			padding: .8rem;
 			font-weight: 300;
 		}
-
-
-
-/* Styleguide-navWrapper
- * Styleguide-navItem
- * Styleguide-navLink */
-
-.Styleguide-navWrapper {
-	position: fixed;
-	top: 6.4rem;
-  bottom: 0;
-  left: 0;
-	overflow-y: scroll;
-	width: 25%;
-	margin: 0;
-	padding: 0 1em .8rem 2em;
-}
-
-	.Styleguide-navItem {
-		list-style-type: none;
-	}
-
-		.Styleguide-navLink {
-			display: block;
-			padding: 0 .8rem;
-			line-height: 1.6rem;
-			text-decoration: none;
-			border-radius: 5px;
-			color: #888;
-		}
-
-		.Styleguide-navLink:hover {
-			background-color: #eee;
-			color: #444;
-		}
-
-
-
-/* Styleguide icons
- * Styleguide-iconWrapper
- * Styleguide-iconItem
- * Styleguide-iconDescription */
-
-.Styleguide-iconWrapper {
-	display: inline-block;
-  width: 9em;
-  margin: 0 .5em .5em 0;
-}
-
-  .Styleguide-iconItem {
-    padding: 1em 0;
-    display: block;
-    background: #ededed;
-    text-align: center;
-    border-top-left-radius: 3px;
-    border-top-right-radius: 3px;
-  }
-
-  .Styleguide-iconDescription {
-    display: block;
-    color: #999;
-    padding: 1em 0;
-    font-size: .8em;
-    text-align: center;
-    border-bottom: 1px solid #ededed;
-  }
