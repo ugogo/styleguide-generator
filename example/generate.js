@@ -5,7 +5,6 @@ new Styleguide({
 		src: 'example/assets/css/',
 		colors: 'example/assets/css/_colors.scss'
 	},
-	type: 'onepage',
 	onepage: {
 		layout: 'example/styleguide/layout.html',
 		stylesheets: [
