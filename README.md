@@ -138,6 +138,41 @@ var defaultOpts = {
 
 
 
+## Extract components
+
+```js
+  var styleguide = new Styleguide({
+    ...
+  });
+
+  styleguide.generate(function (data) {
+    var components = data.components;
+  });
+
+  // or
+  var components = styleguide._getComponents();
+```
+
+
+
+## EventEmitter
+
+```js
+  var styleguide = new Styleguide({
+    ...
+  });
+
+  styleguide.on('myEvent', function () {
+    ...
+  });
+
+  styleguide.emit('myEvent', {
+    ...
+  });
+```
+
+
+
 # The MIT License (MIT)
 
 Copyright (c) 2015 Ugo Onali (http://twitter.com/onaliugo)
