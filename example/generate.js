@@ -21,4 +21,4 @@ var styleguide = new Styleguide({
 
 // You can access options
 // and components like this
-console.log(styleguide);
+// console.log(styleguide);
