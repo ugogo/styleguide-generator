@@ -133,6 +133,12 @@ var defaultOpts = {
    * -> uo-node-utils package */
 
 	silent: false
+
+  /* json: false || path to dist folder
+   * generate a json with components
+   * { components: [...] } */
+
+	json: false
 };
 ```
 
